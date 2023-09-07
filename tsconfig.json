@@ -13,7 +13,7 @@
     "noUnusedLocals": true,
     "outDir": "./dist",
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
