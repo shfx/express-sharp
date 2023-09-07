@@ -80,20 +80,23 @@ export class Transformer {
       transformer.trim()
     }
 
-    if (options.crop) {
-      const [cropWidth, cropHeight] = this.getCropDimensions(
-        this.cropMaxSize,
-        options.width,
-        options.height,
-      )
-      transformer.resize(cropWidth, cropHeight, {
-        position: options.gravity,
-      })
-    } else {
-      transformer.resize(options.width, options.height, {
-        fit: 'inside',
-        withoutEnlargement: true,
-      })
+    if (options.width && options.height) {
+      if (options.crop) {
+        const [cropWidth, cropHeight] = this.getCropDimensions(
+          this.cropMaxSize,
+          options.width,
+          options.height,
+        )
+
+        transformer.resize(cropWidth, cropHeight, {
+          position: options.gravity,
+        })
+      } else {
+        transformer.resize(options.width, options.height, {
+          fit: 'inside',
+          withoutEnlargement: true,
+        })
+      }
     }
 
     const image = await transformer
