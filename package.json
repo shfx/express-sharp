@@ -11,6 +11,7 @@
     "debug": "^4.3.2",
     "dotenv": "^10.0.0",
     "etag": "^1.8.1",
+    "jest-summary-reporter": "^0.0.2",
     "keyv": "^4.0.3",
     "reflect-metadata": "^0.1.13",
     "sharp": "^0.30.0",

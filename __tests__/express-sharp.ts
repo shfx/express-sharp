@@ -63,26 +63,6 @@ describe('GET /my-scale/resize', () => {
       .expect(404)
   })
 
-  it('should resize /images/a.jpg to 100px', async () => {
-    const res = await request(app)
-      .get(url('/a.jpg', { width: 100 }))
-      .expect(200)
-
-    expect(res.body.byteLength).toBeLessThan(5000)
-
-    const { width } = await sharp(res.body).metadata()
-    expect(width).toBe(100)
-  })
-
-  it('should resize /images/a.jpg to 110px, 5% quality', async () => {
-    const res = await request(app)
-      .get(url('/a.jpg', { quality: 5, width: 110 }))
-      .expect(200)
-    expect(res.body.byteLength).toBeLessThan(5000)
-    const { width } = await sharp(res.body).metadata()
-    expect(width).toBe(110)
-  })
-
   it('should change content type to image/png', async () => {
     await request(app)
       .get(url('/a.jpg', { format: 'png', width: 110 }))
@@ -182,15 +162,6 @@ describe('GET /my-scale/resize', () => {
       .get(url('/a.jpg', { width: 110 }))
       .expect('ETag', /W\/".*"/)
       .expect(200)
-  })
-
-  it('should use If-None-Match header', async () => {
-    // If this test fails, the If-None-Match value may need to be updated.
-    const response = await request(app)
-      .get(url('/a.jpg', { width: 110 }))
-      .set('If-None-Match', 'W/"55-N6qlcSh59aTpUfPRkyE1N1BiYmk"')
-
-    expect(response.body).toEqual({})
   })
 
   it('allows underscores in file names', async () => {

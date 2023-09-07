@@ -33,6 +33,8 @@ module.exports = {
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: ['text', 'lcov'],
 
+  reporters: ['jest-summary-reporter'],
+
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
 
@@ -166,7 +168,7 @@ module.exports = {
   // ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
-  modulePathIgnorePatterns: ["<rootDir>/dist/"]
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
 
   // Indicates whether each individual test should be reported during the run
   // verbose: undefined,
