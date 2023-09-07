@@ -6,12 +6,13 @@ import { format, ImageAdapter, Result } from './interfaces'
 import { getLogger } from './logger'
 import { ObjectHash } from './object-hash.service'
 import { ResizeDto } from './resize.dto'
+import type { Debugger } from 'debug'
 
 const DEFAULT_CROP_MAX_SIZE = 2000
 
 @singleton()
 export class Transformer {
-  log = getLogger('transformer')
+  log: Debugger = getLogger('transformer')
   cropMaxSize = DEFAULT_CROP_MAX_SIZE
 
   constructor(

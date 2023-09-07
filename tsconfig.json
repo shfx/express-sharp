@@ -14,6 +14,7 @@
     "outDir": "./dist",
     "sourceMap": true,
     "strict": true,
+    "skipLibCheck": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,

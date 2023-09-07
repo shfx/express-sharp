@@ -20,6 +20,7 @@ module.exports = {
     {
       files: ['*.test.ts', '*.js', '__tests__/**/*.ts'],
       rules: {
+        'sonarjs/cognitive-complexity': 'off',
         'toplevel/no-toplevel-side-effect': 'off',
         'no-magic-numbers': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
