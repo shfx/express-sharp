@@ -71,7 +71,6 @@
   },
   "scripts": {
     "build:test": "tsc --noEmit",
-    "install": "pnpm run build",
     "build": "tsc --build tsconfig.build.json || exit 0;",
     "prebuild": "yarn clean",
     "clean": "rimraf dist",
